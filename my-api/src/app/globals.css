@@ -1,0 +1,32 @@
+/* 1. Inicialización del motor de Tailwind v4 */
+@import "tailwindcss";
+
+/* 🚨 LA SOLUCIÓN MAESTRA: Fuerza a Tailwind v4 a obedecer a tu botón (.dark) */
+@variant dark (&:where(.dark, .dark *));
+
+/* Colores en Modo Claro (Por defecto) */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* 🚨 SINCRONIZACIÓN DE VARIABLES: Cambiamos de @media a la clase .dark de tu botón */
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* 2. Definición del tema en Tailwind v4 */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans), Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+/* 3. Aplicación de los cimientos visuales del escritorio */
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
